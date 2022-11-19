@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a{
+            border: 1px solid black;
+            padding: 0px 3px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Form5: Chuyển chữ thường thành chữ hoa.</h1>
+    <a href="./form4.html" title="Form 4: Đổi màu nền."><</a>
+    <form style="margin-top: 20px;">
+        <input type="text" name="textBox" onblur="Upcase()" 
+        style="border: 2px solid black; border-radius: 3px;">
+    </form>
+</body>
+<script>
+    function Upcase() {
+        text = document.getElementsByName("textBox")[0];
+        text.value = text.value.toUpperCase();
+    }
+</script>
+</html>

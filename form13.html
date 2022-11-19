@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .button {
+            padding: 1px 5px;
+            border: 1px solid black;
+            background-color : rgb(192,192,192);
+            border-width: 1px 2px 2px 1px;
+            border-color: white black black white;
+            box-shadow: 10px;
+            border-radius: 0px;
+        }
+        .button:active {
+            border-color: black;
+        } 
+        #File-Upload {
+            cursor: pointer;
+            background-color : rgb(192,192,192);
+            display: inline;
+        }
+    </style>
+</head>
+
+<body style="background-color: rgb(170,221,221);">
+    <div style="text-align: center;">
+        <div>
+            <h2 style="color:red; font-weight: bold;" >VÍ DỤ VỀ TẠO FORM</h2>
+        </div>
+        <div>
+            <form>
+                <div style="display: inline-block;"d>
+                <table style="display: inline;">
+                    <tr>
+                        <td>
+                            <label for="TextBox">Text box:</label>
+                        </td>
+                        <td>
+                            <input style="width: 27ch;" type="text" name="TextBox">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="TextArea">Text area:</label>
+                        </td>
+                        <td>
+                            <textarea style="overflow-y: scroll;" rows="3" cols="25" name="TextArea"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="FileBox">File box:</label>
+                        </td>
+                        <td>
+                            <input type="text" style="width: 27ch;" name="File-name">
+                        </td>
+                        <td>
+                            <div id="File-Upload" class="button">Browse...
+                                <input type="file" name="FileBox" style="display: none;">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <div style="text-align: left;">
+                <div>
+                    <input type="radio" name="Radio"> Radio button
+                </div>
+                <div>
+                    <input type="checkbox" name="CheckBox"> Check box
+                </div>
+                <div>
+                    <span><input class = "button" type="submit" value="Submit"></span>
+                    <span><input class = "button" type="button" onclick="reset()" value="Reset"></span>
+                </div>
+                </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+<script>
+    function reset() {
+        texts = document.getElementsByClassName("TextBox");
+        for (text of texts) {
+            text.value = "";
+        } 
+    }
+    document.getElementById("File-Upload").addEventListener("click", function(event) {
+        document.getElementsByName("FileBox")[0].click();
+    })
+    document.getElementsByName("FileBox")[0].onchange = function() {
+        document.getElementsByName("File-name")[0].value = this.value;
+        console.log(document.getElementsByName("FileBox")[0].value);
+    }
+</script>
+</html>
